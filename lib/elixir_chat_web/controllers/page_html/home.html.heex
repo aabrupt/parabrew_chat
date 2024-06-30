@@ -1,0 +1,49 @@
+<div class="[transform-style:preserve-3d] [perspective:10px] bg-gray-700 h-fit overflow-x-hidden overflow-y-auto min-h-screen h-fit">
+  <header class="[transform:translateZ(-20px)_scale(3)] -top-[30vh] absolute bg-gray-800 flex flex-col justify-center items-center h-[70vh] w-full">
+    <div class="text-white absolute top-[2rem] left-[2rem]">
+      <.i18n />
+    </div>
+    <h1 class="text-transparent bg-clip-text bg-gradient-to-br from-violet-500 to-teal-300 text-center text-[90px] font-bold">
+      Parabrew
+    </h1>
+    <p class="text-white"><%= gettext("A chat application written in Elixir!") %></p>
+  </header>
+  <div class="[transform:translateZ(0px)] absolute top-[70vh] bg-gray-700 h-fit w-full">
+    <.navbar menu_id="main" />
+    <main class="text-white flex flex-col items-center">
+      <form class="shadow-2xl shadow-sky-600 p-10 rounded-lg my-10 gap-5 flex flex-col">
+        <div class="text-[56px] p-5 flex w-full justify-center">
+          <i class="fa-regular fa-user"></i>
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="capitalize"><%= gettext("Username") %></label>
+          <input
+            name="username"
+            type="text"
+            class="bg-gray-800 border-0 border-gray-800 focus:border-sky-500 focus:ring-0 focus:outline-none rounded-md w-[20rem] px-5 py-3"
+          />
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="capitalize"><%= gettext("Password") %></label>
+          <input
+            name="password"
+            type="password"
+            class="bg-gray-800 border-0 border-gray-800 focus:border-sky-600 focus:ring-0 focus:outline-none rounded-md w-[20rem] px-5 py-3"
+          />
+        </div>
+        <button type="submit" class="w-full rounded-md text-white bg-sky-600 px-5 py-3">
+          <%= gettext("Login") %>
+        </button>
+        <a
+          href="/new"
+          class="inline-block w-fit text-sky-600 hover:text-sky-400 active:text-white"
+        >
+          <%= gettext("Don't have an account?") %>
+        </a>
+      </form>
+      <p>
+        <%= ElixirChat.Content.get_content("front-page") %>
+      </p>
+    </main>
+  </div>
+</div>
