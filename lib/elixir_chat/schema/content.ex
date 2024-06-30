@@ -19,10 +19,17 @@ defmodule Parabrew.Content do
     locale = Gettext.get_locale(ParabrewWeb.Gettext)
     default_locale = Gettext.get_locale()
 
-    content =
+    contents =
       Parabrew.Repo.get_by(
         Parabrew.Content,
-        "SELECT * FROM contents WHERE name = ? AND locale = ?"
+        "SELECT * FROM contents WHERE name = ? AND locale = ?",
+        [name, locale]
       )
+
+    if length(contents) > 2 || length(contents) == 0 do
+      {:error, nil}
+    else
+      {:ok, Enum.find(contents, contents[0], fn content -> content.locale == default_locale end)}
+    end
   end
 end

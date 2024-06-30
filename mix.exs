@@ -1,4 +1,4 @@
-defmodule ElixirChat.MixProject do
+defmodule Parabrew.MixProject do
   use Mix.Project
 
   def project do
@@ -18,7 +18,7 @@ defmodule ElixirChat.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {ElixirChat.Application, []},
+      mod: {Parabrew.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
