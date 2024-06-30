@@ -1,12 +1,12 @@
-defmodule ElixirChatWeb do
+defmodule ParabrewWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use ElixirChatWeb, :controller
-      use ElixirChatWeb, :html
+      use ParabrewWeb, :controller
+      use ParabrewWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,10 +40,10 @@ defmodule ElixirChatWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: ElixirChatWeb.Layouts]
+        layouts: [html: ParabrewWeb.Layouts]
 
       import Plug.Conn
-      import ElixirChatWeb.Gettext
+      import ParabrewWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -52,7 +52,7 @@ defmodule ElixirChatWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {ElixirChatWeb.Layouts, :core}
+        layout: {ParabrewWeb.Layouts, :core}
 
       unquote(html_helpers())
     end
@@ -84,9 +84,9 @@ defmodule ElixirChatWeb do
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
-      import ElixirChatWeb.CoreComponents
+      import ParabrewWeb.CoreComponents
       import ElixitChatWeb.GeneralComponents
-      import ElixirChatWeb.Gettext
+      import ParabrewWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
@@ -99,9 +99,9 @@ defmodule ElixirChatWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: ElixirChatWeb.Endpoint,
-        router: ElixirChatWeb.Router,
-        statics: ElixirChatWeb.static_paths()
+        endpoint: ParabrewWeb.Endpoint,
+        router: ParabrewWeb.Router,
+        statics: ParabrewWeb.static_paths()
     end
   end
 

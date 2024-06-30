@@ -1,7 +1,6 @@
-defmodule ElixirChat.Content do
+defmodule Parabrew.Content do
   use Ecto.Schema
   import Ecto.Changeset
-  import Ecto.Query
 
   schema "contents" do
     field :name, :string
@@ -17,12 +16,13 @@ defmodule ElixirChat.Content do
   end
 
   def get_content(name) when is_bitstring(name) do
-    locale = Gettext.get_locale(ElixirChatWeb.Gettext)
+    locale = Gettext.get_locale(ParabrewWeb.Gettext)
     default_locale = Gettext.get_locale()
 
     content =
-      ElixirChat.Repo.get_by(
-        ElixirChat.Content,
+      Parabrew.Repo.get_by(
+        Parabrew.Content,
+        "SELECT * FROM contents WHERE name = ? AND locale = ?"
       )
   end
 end

@@ -1,4 +1,4 @@
-defmodule ElixirChatWeb.Locale do
+defmodule ParabrewWeb.Locale do
   import Plug.Conn
 
   def init(opts), do: nil
@@ -9,7 +9,7 @@ defmodule ElixirChatWeb.Locale do
         conn
 
       locale ->
-        Gettext.put_locale(ElixirChatWeb.Gettext, locale)
+        Gettext.put_locale(ParabrewWeb.Gettext, locale)
         conn |> put_session(:locale, locale)
     end
   end

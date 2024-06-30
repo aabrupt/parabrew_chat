@@ -7,7 +7,7 @@ defmodule ElixitChatWeb.GeneralComponents do
 
   alias Phoenix.LiveView.JS
 
-  import ElixirChatWeb.MenuWeb
+  import ParabrewWeb.MenuWeb
 
   attr :menu_id, :string, required: true, doc: "The id of the menu to be used"
   attr :icon_href, :string, default: nil, doc: "The location of the icon link"
@@ -58,9 +58,9 @@ defmodule ElixitChatWeb.GeneralComponents do
         onchange="set_locale(this.value)"
       >
         <option
-          :for={locale <- Gettext.known_locales(ElixirChatWeb.Gettext)}
+          :for={locale <- Gettext.known_locales(ParabrewWeb.Gettext)}
           class="bg-gray-700 border-none focus-within:bg-sky-600 py-4 text-base capitalize"
-          selected={locale == Gettext.get_locale(ElixirChatWeb.Gettext)}
+          selected={locale == Gettext.get_locale(ParabrewWeb.Gettext)}
           value={locale}
         >
           <%= locale %>

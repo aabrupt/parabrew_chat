@@ -1,5 +1,5 @@
-defmodule ElixirChatWeb.PageController do
-  use ElixirChatWeb, :controller
+defmodule ParabrewWeb.PageController do
+  use ParabrewWeb, :controller
 
   def home(conn, _params) do
     # The home page is often custom made,

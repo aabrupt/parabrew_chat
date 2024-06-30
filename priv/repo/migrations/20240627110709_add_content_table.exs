@@ -1,4 +1,4 @@
-defmodule ElixirChat.Repo.Migrations.AddContentTable do
+defmodule Parabrew.Repo.Migrations.AddContentTable do
   use Ecto.Migration
 
   def change do

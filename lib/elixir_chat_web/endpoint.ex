@@ -1,4 +1,4 @@
-defmodule ElixirChatWeb.Endpoint do
+defmodule ParabrewWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :elixir_chat
 
   # The session will be stored in the cookie and signed,
@@ -23,7 +23,7 @@ defmodule ElixirChatWeb.Endpoint do
     at: "/",
     from: :elixir_chat,
     gzip: false,
-    only: ElixirChatWeb.static_paths()
+    only: ParabrewWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -49,5 +49,5 @@ defmodule ElixirChatWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug ElixirChatWeb.Router
+  plug ParabrewWeb.Router
 end

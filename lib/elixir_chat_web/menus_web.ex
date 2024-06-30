@@ -1,4 +1,4 @@
-defmodule ElixirChatWeb.MenuWeb do
+defmodule ParabrewWeb.MenuWeb do
   def get_menu(menu_id) when is_bitstring(menu_id) do
     case menu_id do
       "main" ->

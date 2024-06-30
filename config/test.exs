@@ -5,7 +5,7 @@ import Config
 # The MIX_TEST_PARTITION environment variable can be used
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
-config :elixir_chat, ElixirChat.Repo,
+config :elixir_chat, Parabrew.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
@@ -15,13 +15,13 @@ config :elixir_chat, ElixirChat.Repo,
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :elixir_chat, ElixirChatWeb.Endpoint,
+config :elixir_chat, ParabrewWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "fAHQ8ajniiXAYPFe6vmo1z6ulwHrJ/+v+y83aSX29a7z4faowQtz/FvsbO7YbV2H",
   server: false
 
 # In test we don't send emails
-config :elixir_chat, ElixirChat.Mailer, adapter: Swoosh.Adapters.Test
+config :elixir_chat, Parabrew.Mailer, adapter: Swoosh.Adapters.Test
 
 # Disable swoosh api client as it is only required for production adapters
 config :swoosh, :api_client, false

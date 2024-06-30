@@ -1,28 +1,28 @@
-defmodule ElixirChatWeb.Router do
-  use ElixirChatWeb, :router
+defmodule ParabrewWeb.Router do
+  use ParabrewWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, html: {ElixirChatWeb.Layouts, :root}
+    plug :put_root_layout, html: {ParabrewWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug ElixirChatWeb.Locale
+    plug ParabrewWeb.Locale
   end
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/", ElixirChatWeb do
+  scope "/", ParabrewWeb do
     pipe_through :browser
 
     get "/", PageController, :home
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ElixirChatWeb do
+  # scope "/api", ParabrewWeb do
   #   pipe_through :api
   # end
 
@@ -38,7 +38,7 @@ defmodule ElixirChatWeb.Router do
     scope "/dev" do
       pipe_through :browser
 
-      live_dashboard "/dashboard", metrics: ElixirChatWeb.Telemetry
+      live_dashboard "/dashboard", metrics: ParabrewWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end

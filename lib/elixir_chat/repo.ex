@@ -1,4 +1,4 @@
-defmodule ElixirChat.Repo do
+defmodule Parabrew.Repo do
   use Ecto.Repo,
     otp_app: :elixir_chat,
     adapter: Ecto.Adapters.SQLite3

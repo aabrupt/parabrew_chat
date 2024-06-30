@@ -8,18 +8,18 @@
 import Config
 
 config :elixir_chat,
-  ecto_repos: [ElixirChat.Repo],
+  ecto_repos: [Parabrew.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
-config :elixir_chat, ElixirChatWeb.Endpoint,
+config :elixir_chat, ParabrewWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
-    formats: [html: ElixirChatWeb.ErrorHTML, json: ElixirChatWeb.ErrorJSON],
+    formats: [html: ParabrewWeb.ErrorHTML, json: ParabrewWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: ElixirChat.PubSub,
+  pubsub_server: Parabrew.PubSub,
   live_view: [signing_salt: "P/WDzoi6"]
 
 # Configures the mailer
@@ -29,7 +29,7 @@ config :elixir_chat, ElixirChatWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :elixir_chat, ElixirChat.Mailer, adapter: Swoosh.Adapters.Local
+config :elixir_chat, Parabrew.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,
