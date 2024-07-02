@@ -1,6 +1,7 @@
 defmodule Parabrew.Content do
   use Ecto.Schema
   import Ecto.Changeset
+  import Ecto.Query
 
   schema "contents" do
     field :name, :string
@@ -20,16 +21,24 @@ defmodule Parabrew.Content do
     default_locale = Gettext.get_locale()
 
     contents =
-      Parabrew.Repo.get_by(
-        Parabrew.Content,
-        "SELECT * FROM contents WHERE name = ? AND locale = ?",
-        [name, locale]
+      Parabrew.Repo.all(
+        from c in Parabrew.Content,
+          where: c.name == ^name and (c.locale == ^locale or c.locale == ^default_locale)
       )
 
-    if length(contents) > 2 || length(contents) == 0 do
-      {:error, nil}
+    if contents == nil || length(contents) == 0 do
+      nil
     else
-      {:ok, Enum.find(contents, contents[0], fn content -> content.locale == default_locale end)}
+      default_idx =
+        Enum.find_index(contents, fn content ->
+          content.locale == default_locale
+        end)
+
+      if length(contents) == 2 do
+        contents |> Enum.at(1 - default_idx)
+      else
+        contents |> Enum.at(default_idx)
+      end
     end
   end
 end

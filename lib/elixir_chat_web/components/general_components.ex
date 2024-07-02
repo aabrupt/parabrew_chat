@@ -16,10 +16,10 @@ defmodule ElixitChatWeb.GeneralComponents do
   def navbar(assigns) do
     ~H"""
     <nav>
-      <ul class="w-full h-fit px-10 py-4 gap-10 flex justify-between text-white">
+      <ul class="w-full h-fit px-10 py-4 gap-10 flex justify-between text-default">
         <li
           :for={{name, href, icon} <- get_menu(@menu_id)}
-          class="group bg-slate-800/20 rounded-lg px-5 py-2"
+          class="group bg-accent rounded-lg px-5 py-2"
         >
           <a href={href}>
             <div class="flex items-center text-3xl">
